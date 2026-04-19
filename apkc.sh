@@ -486,7 +486,7 @@ create_readme_md() {
   local path="$base_dir/README.md"
   cat > $path << EOF
 # Template
-* by https://github.com/Kynonim
+* by https://github.com/Kynonim/Apkc
 EOF
   echo -e "${NO}[${WR}$path${NO}] ${SC}created"
 }
@@ -609,7 +609,8 @@ create_app_test() {
   local base_dir=$1
   local package_path=$2
   local package_name=$3
-  local path="$base_dir/app/src/test/java/$package_path/ExampleUnitTest.java" << EOF
+  local path="$base_dir/app/src/test/java/$package_path/ExampleUnitTest.java"
+  cat > $path << EOF
 package $package_name;
 
 import org.junit.Test;
