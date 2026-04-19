@@ -25,6 +25,7 @@ create_directories() {
   mkdir -p "$base_dir/app/src/main/res/values"
   mkdir -p "$base_dir/app/src/main/res/drawable"
   mkdir -p "$base_dir/app/src/main/res/mipmap"
+  mkdir -p "$base_dir/app/src/main/res/mipmap-anydpi-v26"
   mkdir -p "$base_dir/app/src/main/res/values-night"
   mkdir -p "$base_dir/app/src/main/res/xml"
   mkdir -p "$base_dir/app/src/androidTest/java/$package_path"
@@ -946,7 +947,7 @@ EOF
 
 create_app_res_mipmap_ic() {
   local base_dir=$1
-  local path="$base_dir/app/src/main/res/mipmap/ic_launcher.xml"
+  local path="$base_dir/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
   cat > $path << EOF
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
@@ -960,7 +961,7 @@ EOF
 
 create_app_res_mipmap_ic_round() {
   local base_dir=$1
-  local path="$base_dir/app/src/main/res/mipmap/ic_launcher_round.xml"
+  local path="$base_dir/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
   cat > $path << EOF
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
@@ -1171,6 +1172,9 @@ create_readme_md "$PROJECT_DIR"
 # success
 echo ""
 echo -e "${SC}$PROJECT_NAME ${NO}successfully created"
+echo -e "${SC}Executable gradlew created"
+chmod +x $PROJECT_NAME/gradlew
+chmod +x $PROJECT_NAME/gradlew.bat
 echo ""
 echo -e "${WR}Next:${NO}"
 echo -e "  1. ${SC}cd${NO} $PROJECT_NAME"
