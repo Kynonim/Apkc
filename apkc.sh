@@ -635,7 +635,8 @@ create_app_main_activity() {
 package $package_name;
 
 import android.os.Bundle;
-import android.widget.Toast;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -656,7 +657,11 @@ public class $activity_name extends AppCompatActivity {
     });
 
     findViewById(R.id.btn_start).setOnClickListener(v -> {
-      Toast.makeText(this, "Hallo Semuanya, Saya Riky Ripaldo", Toast.LENGTH_SHORT).show();
+      new AlertDialog.Builder(this)
+        .setTitle(R.string.univ_name)
+        .setMessage("Testing by Riky Ripaldo")
+        .setPositiveButton("OK", null)
+        .show();
     });
   }
 }
@@ -996,7 +1001,7 @@ create_app_res_values_strings() {
   cat > $path << EOF
 <resources>
   <string name="app_name">$base_dir</string>
-  <string name="nama">Riky Ripaldo</string>
+  <string name="name">Riky Ripaldo</string>
   <string name="univ_name">Universitas Stekom</string>
   <string name="start">Start</string>
 </resources>
@@ -1153,7 +1158,7 @@ create_app_res_layout "$PROJECT_DIR" "$ACTIVITY_NAME"
 create_app_res_mipmap_ic "$PROJECT_DIR"
 create_app_res_mipmap_ic_round "$PROJECT_DIR"
 create_app_res_values_colors "$PROJECT_DIR"
-create_app_res_values_strings "$PROJECT_DIR"
+create_app_res_values_strings "$PROJECT_NAME"
 create_app_res_values_themes "$PROJECT_DIR"
 create_app_res_values_night_themes "$PROJECT_DIR"
 create_app_res_xml_bckp "$PROJECT_DIR"
